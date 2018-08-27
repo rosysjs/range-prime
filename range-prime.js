@@ -1,14 +1,26 @@
-// this is a comment
-console.log("hello world")
-var rangeSimple = function(low, high) {
+var primeRange = function(low, high) {
 	var tempArray = [];
-	for (tempVar = low; tempVar <= high; tempVar++) {
-		if (true /* todo  replace with stuff to check if prime*/) {
-			tempArray.push(tempVar);
+	for (i=low; i <= high; i++) {
+		if (checkPrime(i) == true) {
+			tempArray.push(i);
 		}
 	}
 	return tempArray;
+	
 }
 
-tempArray2 = rangeSimple(5,10);
-console.log(tempArray2);
+var checkPrime = function(item) {
+	if (item <= 3) {
+		return true;
+	}
+	var isPrime = true;
+	for (i=3; i<item; i++) {
+		if (item % i == 0) {
+			isPrime = false;
+		}
+	}
+	return isPrime;
+}
+
+var testArray = (primeRange(100,200));
+console.log(testArray);
